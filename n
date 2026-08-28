@@ -1,0 +1,73 @@
+#Start
+# Collect the traveler's basic trip information.
+print("Welcome to the Disney Budget Calculation system!")
+print("This program will help you calculate your expenses.")
+print("Let's get started with some questions.")
+name = input("What's your name?")
+number_of_people = int(input("How many people will be attending?"))
+days = 3
+hotel_nights = int(input("How many nights will you stay at a hotel?"))
+# Store ticket prices by number of park days.
+park_hopper_price_3 = int(535)
+# Calculate the total Park Hopper ticket cost.
+total_ticket_price = park_hopper_price_3 * number_of_people
+#print(f"Total ticket price for {number_of_people} people for {days} days is: ${total_ticket_price}")
+food_cost = float(input("How much will ONE person spend on food per day? (in dollars) "))
+# Calculate food expenses for the entire group.
+total_food_cost = food_cost * number_of_people * days
+souveneir_cost = float(input("How much will ONE person spend on souvenirs? (in dollars) "))
+total_souvenir_cost = souveneir_cost * number_of_people
+hotel_cost_per_night = float(input("How much will the hotel cost per night? (in dollars) "))
+rooms_needed = float(input("How many rooms will you need? "))
+# Calculate the total cost of the hotel stay.
+total_hotel_cost = hotel_cost_per_night * hotel_nights * rooms_needed
+one_way_distance = float(input("How far is Disneyland from your home? (in miles) "))
+vehicle_mpg = float(input("How many miles per gallon does your vehicle get? "))
+round_trip_distance = one_way_distance * 2
+#gas_price = float(int(6.65))
+gas_price = float(input("What is the current price of gas per gallon? (in dollars) "))
+# Estimate fuel needed for the round trip.
+gallons_needed = round_trip_distance / vehicle_mpg
+total_gas_cost = gallons_needed * gas_price
+parking_cost_per_day = float(input("How much will parking cost per day? (in dollars) "))
+total_parking_cost = parking_cost_per_day * days
+# Add every trip expense to find the final cost.
+final_total = total_ticket_price + total_food_cost + total_souvenir_cost + total_hotel_cost + total_gas_cost + total_parking_cost
+cost_per_person = final_total / number_of_people
+cost_per_day = final_total / days
+trip_budget = float(input("What is your total budget for the trip? (in dollars) "))
+budget_difference = trip_budget - final_total
+
+#BEGIN PRESENTATION OF RESULTS
+# Display the completed Disneyland trip report.
+
+print("\n--------- DISNEYLAND TRIP REPORT ---------")
+print(f"\nTraveler: {name}")
+print(f"\nPeople Going: {number_of_people}")
+print(f"Disneyland Park Days: {days}")
+print(f"Hotel Nights: {hotel_nights}")
+print("\n--------- PARK HOPPER TICKETS ---------")
+print(f"\nPark Hopper Price Per Person: ${park_hopper_price_3:,.2f}")
+print(f"Total Ticket Cost: ${total_ticket_price:,.2f}")
+print("\n--------- FOOD & SOUVENIRS ---------")
+print(f"Total Food Cost: ${total_food_cost:,.2f}")
+print(f"Total Souvenir Cost: ${total_souvenir_cost:,.2f}")
+print("\n--------- HOTEL ---------")
+print(f"Total Hotel Cost: ${total_hotel_cost:,.2f}")
+print("\n--------- DRIVING ---------")
+print(f"\nOne-Way Distance: {one_way_distance:.0f} miles")
+print(f"Round-Trip Distance: {round_trip_distance:.0f} miles")
+print(f"\nVehicle MPG: {vehicle_mpg:.0f}")
+print(f"Gas Price: ${gas_price:.2f}")
+print(f"Gallons Needed: {gallons_needed:.0f}")
+print(f"Total Gas Cost: ${total_gas_cost:,.2f}")
+print(f"\nParking Cost: ${total_parking_cost:,.2f}")
+print("\n--------- TRIP TOTAL ---------")
+print(f"Final Disneyland Trip Cost: ${final_total:,.2f}")
+print(f"\nCost Per Person: ${cost_per_person:,.2f}")
+print(f"Cost Per Park Day: ${cost_per_day:,.2f}")
+print("\n--------- BUDGET ---------")
+print(f"Trip Budget: ${trip_budget:,.2f}")
+print(f"Budget Difference: ${budget_difference:,.2f}")
+print("\nHave a magical trip to Disneyland!")
+print()
